@@ -1,0 +1,41 @@
+<h1>Actor Table</h1>
+<div class="section">
+    <table class="table">
+      <tr>
+        <th>Name</th>
+        <th>Birth Year</th>
+        <th>SELECT</th>
+      </tr>
+      <tr *ngFor="let item of actorsDB">
+        <td >{{item.name}}</td>
+        <td>{{item.bYear}}</td>
+        <td class="btn btn-success" (click)="selectActor(item)" >Select</td>
+      </tr>
+    </table>
+</div>
+<h1>Movie Table</h1>
+<div class="section">
+    <table class="table">
+      <tr>
+        <th>Title</th>
+        <th>Year</th>
+        <th>SELECT</th>
+      </tr>
+      <tr *ngFor="let item of moviesDB">
+        <td>{{item.title}}</td>
+        <td>{{item.year}}</td>
+        <td class="btn btn-success" (click)="selectMovie(item)">Select</td>
+      </tr>
+    </table>
+</div>
+<div>
+  <span *ngIf="name != ''">
+    <p [(ngModel)]="name" ngDefaultControl>You select the Actor: {{name}} </p>
+  </span>
+  <span *ngIf="title != ''" >
+    <p [(ngModel)]="title" ngDefaultControl>You select the Movie: {{title}}</p>
+  </span>
+  <span *ngIf="name!='' && title!='' ">
+    <button class="btn btn-primary" style="margin-left: 10px;" (click)="onAddActToMov()">Insert</button> 
+  </span>
+</div>
